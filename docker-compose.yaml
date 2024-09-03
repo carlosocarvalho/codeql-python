@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+    app:
+        build: .
+        # ports:
+        #     - 1076:1080
+        #     - 1026:1025
+        volumes:
+          - ./:/opt/src
