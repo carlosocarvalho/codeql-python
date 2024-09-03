@@ -1,0 +1,1 @@
+{"languages":{"python":{"displayName":"Python","files":["scripts/language-supporter.py","app.py","scripts/sarif2sast.py","scripts/fix-sarifviewer-schema-mismatch.py"],"linesOfCode":253,"name":"python"},"javascript":{"displayName":"JavaScript/TypeScript","files":["xss.js"],"linesOfCode":4,"name":"javascript"}}}

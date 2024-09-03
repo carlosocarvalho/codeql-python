@@ -1,0 +1,11 @@
+---
+sourceLocationPrefix: /opt/src
+baselineLinesOfCode: 253
+unicodeNewlines: false
+columnKind: utf32
+primaryLanguage: python
+creationMetadata:
+  sha: 74703cc9bba3dd2d0d91dc44e84bdaf2415acc54
+  cliVersion: 2.18.3
+  creationTime: 2024-09-03T23:22:45.035391344Z
+finalised: true
