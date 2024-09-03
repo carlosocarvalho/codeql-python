@@ -1,5 +1,5 @@
 
-name: "Mobb/CodeQL"
+name: "FitoxsAI/CodeQL"
 
 on:
   push:
