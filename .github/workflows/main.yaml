@@ -76,7 +76,7 @@ jobs:
     - name: Print results
       shell: bash
       run: |
-        ls -la /
+        ls -la /home
 
     - if: matrix.build-mode == 'manual'
       shell: bash
