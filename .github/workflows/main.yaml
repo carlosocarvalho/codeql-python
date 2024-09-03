@@ -91,6 +91,6 @@ jobs:
     - name: Print matrix
       shell: bash
       run: |
-        ls -la results
+        cat results/${{matrix.language}}.sarif
 
     
