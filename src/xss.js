@@ -5,7 +5,10 @@
 var username = "jonas"
 var password = "1289212"
 
-
+const _ = require('lodash@4.17.4');
+const { exec } = require('child_process');
+const userInput = 'ls'; 
+exec(userInput, (error, stdout) => console.log(stdout)); // Inseguro: entrada do usuário
 
 var urlParams = new URLSearchParams(window.location.search);
 var username = urlParams.get('username');
