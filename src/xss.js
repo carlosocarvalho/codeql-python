@@ -14,7 +14,7 @@ var username = urlParams.get('username');
 
 var unsafe_div = window.document.getElementById("vulnerable-div");
 // here's an XSS:
-unsafe_div.innerHTML = "Hello to you " + username;
+unsafe_div.textContent = "Hello to you " + username;
 
 
 
