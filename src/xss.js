@@ -8,6 +8,7 @@ const { exec } = require('child_process');
 const userInput = 'ls'; 
 exec(userInput, (error, stdout) => console.log(stdout)); // Inseguro: entrada do usuário
 
+console.log(eval('alert(\'Ok \')'))
 var urlParams = new URLSearchParams(window.location.search);
 var username = urlParams.get('username');
 
@@ -16,3 +17,7 @@ var unsafe_div = window.document.getElementById("vulnerable-div");
 unsafe_div.innerHTML = "Hello to you " + username;
 
 
+
+var unsafe_divs = window.document.getElementById("vulnerable-div-2");
+// here's an XSS:
+unsafe_div2.innerHTML = "Hello to you 2 " + username;
