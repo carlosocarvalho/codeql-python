@@ -1,0 +1,20 @@
+{
+    "version": "14.0.0",
+    "vulnerabilities": [],
+    "remediations": [],
+    "scan": {
+        "messages": [],
+        "scanner": {
+            "id": "codeql",
+            "name": "CodeQL",
+            "version": "2.18.3",
+            "vendor": {
+                "name": "GitHub"
+            }
+        },
+        "status": "success",
+        "type": "sast",
+        "start_time": "2024-09-05T12:35:03",
+        "end_time": "2024-09-05T12:35:03"
+    }
+}
