@@ -1,0 +1,442 @@
+[2024-09-06 16:40:03] This is codeql database create --threads=0 --language=python /opt/results/codeql-db -s /opt/src
+[2024-09-06 16:40:03] Log file was started late.
+[2024-09-06 16:40:03] [PROGRESS] database create> Initializing database at /opt/results/codeql-db.
+[2024-09-06 16:40:03] Running plumbing command: codeql database init --language=python --extractor-options-verbosity=1 --qlconfig-file=/root/qlconfig.yml --source-root=/opt/src --allow-missing-source-root=false --allow-already-existing -- /opt/results/codeql-db
+[2024-09-06 16:40:03] Calling plumbing command: codeql resolve languages --extractor-options-verbosity=1 --format=betterjson
+[2024-09-06 16:40:03] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /root/codeql-home/codeql/.codeqlmanifest.json
+[2024-09-06 16:40:03] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/cpp/codeql-extractor.yml.
+[2024-09-06 16:40:03] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/csharp/codeql-extractor.yml.
+[2024-09-06 16:40:03] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/properties/codeql-extractor.yml.
+[2024-09-06 16:40:03] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/go/codeql-extractor.yml.
+[2024-09-06 16:40:03] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/xml/codeql-extractor.yml.
+[2024-09-06 16:40:03] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/yaml/codeql-extractor.yml.
+[2024-09-06 16:40:03] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/swift/codeql-extractor.yml.
+[2024-09-06 16:40:03] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/csv/codeql-extractor.yml.
+[2024-09-06 16:40:03] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/html/codeql-extractor.yml.
+[2024-09-06 16:40:03] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/java/codeql-extractor.yml.
+[2024-09-06 16:40:03] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/python/codeql-extractor.yml.
+[2024-09-06 16:40:03] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/javascript/codeql-extractor.yml.
+[2024-09-06 16:40:03] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/ruby/codeql-extractor.yml.
+[2024-09-06 16:40:03] Plumbing command codeql resolve languages completed:
+                      {
+                        "aliases" : {
+                          "c" : "cpp",
+                          "c++" : "cpp",
+                          "c-c++" : "cpp",
+                          "c-cpp" : "cpp",
+                          "c#" : "csharp",
+                          "java-kotlin" : "java",
+                          "kotlin" : "java",
+                          "javascript-typescript" : "javascript",
+                          "typescript" : "javascript"
+                        },
+                        "extractors" : {
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/cpp",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+                                  "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "binlog" : {
+                                  "title" : "Binlog",
+                                  "description" : "[EXPERIMENTAL] The value is a path to the MsBuild binary log file that should be extracted. This option only works when `--build-mode none` is also specified.\n",
+                                  "type" : "string"
+                                }
+                              }
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/properties"
+                            }
+                          ],
+                          "go" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/go"
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/xml"
+                            }
+                          ],
+                          "yaml" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/yaml"
+                            }
+                          ],
+                          "swift" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/swift"
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/csv"
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/html"
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis.\n",
+                                  "type" : "string"
+                                },
+                                "add_prefer_source" : {
+                                  "title" : "Whether to always prefer source files over class files.",
+                                  "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction (experimental).",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/python",
+                              "extractor_options" : {
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Python extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "python_executable_name" : {
+                                  "title" : "Controls the name of the Python executable used by the Python extractor.",
+                                  "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(py|python|python3)$"
+                                }
+                              }
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/javascript",
+                              "extractor_options" : {
+                                "skip_types" : {
+                                  "title" : "Skip type extraction for TypeScript",
+                                  "description" : "Whether to skip the extraction of types in a TypeScript application",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/ruby",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+[2024-09-06 16:40:03] [PROGRESS] database init> Calculating baseline information in /opt/src
+[2024-09-06 16:40:03] [SPAMMY] database init> Ignoring the following directories when processing baseline information: .git, .hg, .svn.
+[2024-09-06 16:40:03] [DETAILS] database init> Running command in /opt/src: /root/codeql-home/codeql/tools/linux64/scc --by-file --exclude-dir .git,.hg,.svn --format json --no-large --no-min .
+[2024-09-06 16:40:03] Using configure-baseline script /root/codeql-home/codeql/javascript/tools/configure-baseline.sh.
+[2024-09-06 16:40:03] [PROGRESS] database init> Running command in /opt/src: [/root/codeql-home/codeql/javascript/tools/configure-baseline.sh]
+[2024-09-06 16:40:03] [SPAMMY] database init> Found 1 baseline files for javascript.
+[2024-09-06 16:40:04] [PROGRESS] database init> Calculated baseline information for languages: javascript (62ms).
+[2024-09-06 16:40:07] [PROGRESS] database init> Resolving extractor python.
+[2024-09-06 16:40:07] [DETAILS] database init> Found candidate extractor root for python: /root/codeql-home/codeql/python.
+[2024-09-06 16:40:07] [PROGRESS] database init> Successfully loaded extractor Python (python) from /root/codeql-home/codeql/python.
+[2024-09-06 16:40:07] [PROGRESS] database init> Created skeleton CodeQL database at /opt/results/codeql-db. This in-progress database is ready to be populated by an extractor.
+[2024-09-06 16:40:07] Plumbing command codeql database init completed.
+[2024-09-06 16:40:07] [PROGRESS] database create> Running build command: []
+[2024-09-06 16:40:07] Running plumbing command: codeql database trace-command --threads=0 --working-dir=/opt/src --index-traceless-dbs --no-db-cluster -- /opt/results/codeql-db
+[2024-09-06 16:40:07] Using autobuild script /root/codeql-home/codeql/python/tools/autobuild.sh.
+[2024-09-06 16:40:07] [PROGRESS] database trace-command> Running command in /opt/src: [/root/codeql-home/codeql/python/tools/autobuild.sh]
+[2024-09-06 16:40:07] [build-stderr] /bin/sh: 1: python2: not found
+[2024-09-06 16:40:07] [build-stdout] No directories containing root identifiers were found. Returning working directory as root.
+[2024-09-06 16:40:07] [build-stdout] Will try to guess Python version, as it was not specified in `lgtm.yml`
+[2024-09-06 16:40:07] [build-stdout] Trying to guess Python version based on Trove classifiers in setup.py
+[2024-09-06 16:40:07] [build-stdout] Did not find setup.py (expected it to be at /opt/src/setup.py)
+[2024-09-06 16:40:07] [build-stdout] Trying to guess Python version based on travis file
+[2024-09-06 16:40:07] [build-stdout] Did not find any travis files (expected them at either ['/opt/src/.travis.yml', '/opt/src/travis.yml'])
+[2024-09-06 16:40:07] [build-stdout] Trying to guess Python version based on installed versions
+[2024-09-06 16:40:07] [build-stdout] Wanted to run Python 2, but it is not available. Using Python 3 instead
+[2024-09-06 16:40:07] [build-stdout] This script is running Python 3, but Python 2 is also available (as 'python3')
+[2024-09-06 16:40:07] [build-stdout] Could not guess Python version, will use default: Python 3
+[2024-09-06 16:40:07] [build-stdout] Calling python3 -S /root/codeql-home/codeql/python/tools/python_tracer.py --verbosity 3 -z all -c /opt/results/codeql-db/working/trap_cache -R /opt/src
+[2024-09-06 16:40:07] [build-stdout] [INFO] Extraction will use the Python 3 standard library.
+[2024-09-06 16:40:07] [build-stdout] [INFO] sys_path is: ['/root/codeql-home/codeql/python/tools', '/usr/lib/python38.zip', '/usr/lib/python3.8', '/usr/lib/python3.8/lib-dynload']
+[2024-09-06 16:40:07] [build-stdout] [INFO] Python version 3.8.10
+[2024-09-06 16:40:07] [build-stdout] [INFO] Python extractor version 6.1.2
+[2024-09-06 16:40:07] [build-stdout] [INFO] Processed 0 modules in 0.14s
+[2024-09-06 16:40:07] Plumbing command codeql database trace-command completed.
+[2024-09-06 16:40:07] [PROGRESS] database create> Finalizing database at /opt/results/codeql-db.
+[2024-09-06 16:40:07] Running plumbing command: codeql database finalize --threads=0 --no-db-cluster -- /opt/results/codeql-db
+[2024-09-06 16:40:08] Calling plumbing command: codeql resolve languages --format=json
+[2024-09-06 16:40:08] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /root/codeql-home/codeql/.codeqlmanifest.json
+[2024-09-06 16:40:08] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/cpp/codeql-extractor.yml.
+[2024-09-06 16:40:08] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/csharp/codeql-extractor.yml.
+[2024-09-06 16:40:08] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/properties/codeql-extractor.yml.
+[2024-09-06 16:40:08] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/go/codeql-extractor.yml.
+[2024-09-06 16:40:08] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/xml/codeql-extractor.yml.
+[2024-09-06 16:40:08] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/yaml/codeql-extractor.yml.
+[2024-09-06 16:40:08] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/swift/codeql-extractor.yml.
+[2024-09-06 16:40:08] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/csv/codeql-extractor.yml.
+[2024-09-06 16:40:08] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/html/codeql-extractor.yml.
+[2024-09-06 16:40:08] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/java/codeql-extractor.yml.
+[2024-09-06 16:40:08] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/python/codeql-extractor.yml.
+[2024-09-06 16:40:08] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/javascript/codeql-extractor.yml.
+[2024-09-06 16:40:08] [DETAILS] resolve languages> Parsing /root/codeql-home/codeql/ruby/codeql-extractor.yml.
+[2024-09-06 16:40:08] Plumbing command codeql resolve languages completed:
+                      {
+                        "aliases" : {
+                          "c" : "cpp",
+                          "c++" : "cpp",
+                          "c-c++" : "cpp",
+                          "c-cpp" : "cpp",
+                          "c#" : "csharp",
+                          "java-kotlin" : "java",
+                          "kotlin" : "java",
+                          "javascript-typescript" : "javascript",
+                          "typescript" : "javascript"
+                        },
+                        "extractors" : {
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/cpp",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+                                  "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "binlog" : {
+                                  "title" : "Binlog",
+                                  "description" : "[EXPERIMENTAL] The value is a path to the MsBuild binary log file that should be extracted. This option only works when `--build-mode none` is also specified.\n",
+                                  "type" : "string"
+                                }
+                              }
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/properties"
+                            }
+                          ],
+                          "go" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/go"
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/xml"
+                            }
+                          ],
+                          "yaml" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/yaml"
+                            }
+                          ],
+                          "swift" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/swift"
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/csv"
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/html"
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis.\n",
+                                  "type" : "string"
+                                },
+                                "add_prefer_source" : {
+                                  "title" : "Whether to always prefer source files over class files.",
+                                  "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction (experimental).",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/python",
+                              "extractor_options" : {
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Python extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "python_executable_name" : {
+                                  "title" : "Controls the name of the Python executable used by the Python extractor.",
+                                  "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(py|python|python3)$"
+                                }
+                              }
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/javascript",
+                              "extractor_options" : {
+                                "skip_types" : {
+                                  "title" : "Skip type extraction for TypeScript",
+                                  "description" : "Whether to skip the extraction of types in a TypeScript application",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/root/codeql-home/codeql/ruby",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+[2024-09-06 16:40:08] [SPAMMIER] database finalize> Loaded the following extractors: C/C++, C#, Java Properties Files, Go, XML, YAML, Swift, CSV, HTML, Java/Kotlin, Python, JavaScript/TypeScript, Ruby
+[2024-09-06 16:40:08] [ERROR] database finalize> CodeQL detected code written in JavaScript/TypeScript, but not any written in Python. Confirm that there is some source code for Python in the project. For more information, review our troubleshooting guide at https://gh.io/troubleshooting-code-scanning/no-source-code-seen-during-build.
+[2024-09-06 16:40:08] Plumbing command codeql database finalize completed with status 32.
+[2024-09-06 16:40:08] Exiting with code 32
